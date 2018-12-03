@@ -91,7 +91,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	vertical-align: baseline;
 }
 .navbar-brand{
-	font-family: 'Indie Flower', serif;
+	font-family: 'Indie Flower', cursive;
 }
 html {
 	overflow-y: scroll; /* Keeps page centred in all browsers regardless of content height */

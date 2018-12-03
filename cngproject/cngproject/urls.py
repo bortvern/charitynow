@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
     url(r'^project/(\d+)/', views.project_detail, name='project_detail'),
+    url(r'aboutus/', views.aboutus, name='aboutus'),
     path('register/', user_views.register, name='register'),
 ]
