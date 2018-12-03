@@ -17,9 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from projects import views
-
+from users import views as user_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
-    url(r'^project/(\d+)/', views.project_detail, name='project_detail')
+    url(r'^project/(\d+)/', views.project_detail, name='project_detail'),
+    path('register/', user_views.register, name='register'),
 ]
