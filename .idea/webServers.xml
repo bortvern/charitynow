@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3720c977-dbbd-464a-b9a0-f054087429cf" name="awsBosdigWeb02" url="http://34.239.6.94">
+        <fileTransfer host="34.239.6.94" port="22" privateKey="C:\Users\David\Desktop\bosdig-awskey.ppk" rootFolder="/opt/" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

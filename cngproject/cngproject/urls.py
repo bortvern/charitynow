@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
+from projects import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^$', views.home, name='home'),
+    url(r'^project/(\d+)/', views.project_detail, name='project_detail')
 ]
