@@ -22,3 +22,7 @@ def project_detail(request, id):
         raise Http404('Project not found')
     return render(request, 'project_detail.html', {'project': project})
 
+
+def cngadmin(request):
+    projects = CharityProject.objects.all()
+    return render(request, 'cngadmin.html', {'projects': projects})

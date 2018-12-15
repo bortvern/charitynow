@@ -32,6 +32,14 @@
                             Home
                         </a>
                     </li>
+                     {% if user.is_superuser %}
+                            <li class="">
+                         <a href="{% url 'cngadmin' %}">
+                            <span class="glyphicon glyphicon-king" aria-hidden="true"></span>&nbsp;
+                            Admin
+                        </a>
+                    </li>
+                    {%  endif %}
                         {% if user.is_authenticated %}
                             <li class="">
                          <a href="{% url 'profile' %}">
@@ -102,7 +110,6 @@
                 </div>
             </header>
             <div class="main-wrapper">
-                <div class="single-page clearfix">
                     <div class="inner-wrap">
                         <div>
                         {% if messages %}
@@ -117,7 +124,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
             <footer id="colophon">
                 <div class="inner-wrap">
                     Charity Now Global is based in Atlanta, Georgia, USA.

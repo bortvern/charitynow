@@ -12,6 +12,7 @@ class CharityProject(models.Model):
     lon = models.DecimalField(max_digits=8, decimal_places=3)
     submission_date = models.DateTimeField()
     stakeholder = models.ManyToManyField('CharityStakeholder', blank=True)
+    bannerimage = models.ImageField(default='default.jpg', upload_to='project_pics')
 
     def __str__(self):
         return self.name
