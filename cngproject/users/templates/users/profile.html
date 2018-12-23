@@ -8,8 +8,12 @@
         <li><img class="img-circle img-thumbnail" src="{{ user.profile.image.url }}"/></li>
         <li>Username: {{  user.username }}</li>
         <li>Name: {{  user.first_name }} {{  user.last_name }}</li>
-        <li>Anonymous: {{ user.profile.anonymous }}</li>
-        <li>Available Funds: $0.00 <a href="#">Add Funds</a></A></li>
+        {% if user.profile.anonymous %}
+            <li>Your account is set to Anonymous. Your information will not be shared with projects or other users.</li>
+        {% else %}
+            <li>Your account is not set to Anonymous. If selected your information may be shared with projects or other users.</li>
+        {% endif %}
+        <li>Available Funds: $0.00 <a href="{% url 'addfunds' %}">Add Funds</a></A></li>
         <li>Committed Funds: $0.00</li>
         <li>Distributed Funds: $0.00</li>
     </ul>

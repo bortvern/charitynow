@@ -15,6 +15,21 @@ def aboutus(request):
     return render(request, 'about_us.html', {'projects': projects})
 
 
+def addfunds(request):
+    projects = CharityProject.objects.all()
+    return render(request, 'addfunds.html', {'projects': projects})
+
+
+def donatecancel(request):
+    projects = CharityProject.objects.all()
+    return render(request, 'donatecancel.html', {'projects': projects})
+
+
+def donatesuccess(request):
+    projects = CharityProject.objects.all()
+    return render(request, 'donatesuccess.html', {'projects': projects})
+
+
 def project_detail(request, id):
     try:
         project = CharityProject.objects.get(id=id)

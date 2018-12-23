@@ -1,13 +1,21 @@
 <component name="ProjectDictionaryState">
   <dictionary name="David">
     <words>
+      <w>aboutus</w>
+      <w>addfunds</w>
+      <w>bannerimage</w>
       <w>charitynow</w>
       <w>charitynowdb</w>
+      <w>cngadmin</w>
       <w>cngproject</w>
       <w>dbpass</w>
       <w>dbserver</w>
+      <w>donatecancel</w>
+      <w>donatesuccess</w>
       <w>glyphicon</w>
+      <w>lconf</w>
       <w>navbar</w>
+      <w>passwordreset</w>
     </words>
   </dictionary>
 </component>
