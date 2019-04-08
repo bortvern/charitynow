@@ -8,6 +8,9 @@
             </a>
         <p>{{ project.submission_date }}</p>
 
+{% for ledger in project.ledgers %}
+    {{ ledger.name|capfirst }}
+    {% endfor %}
         </div>
 
     {% endfor %}

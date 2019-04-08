@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+
+
+
+    <ul>
+        {%  for entry in entries %}
+        <li>{{  entry.entrycomment }}</li>
+        <li>{{  entry.entryamount }}</li>
+        {% endfor %}
+    </ul>
+
+
+
+</div>
+{% endblock %}

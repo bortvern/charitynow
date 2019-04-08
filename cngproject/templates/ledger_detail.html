@@ -1,21 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
-<img class="img-fluid" src="{{ project.bannerimage.url }}">
-    <h3>{{ project.name|capfirst }}</h3>
 
-    <p>{{ project.description }}</p>
-    <p>{{ project.submitter }}</p>
-    <p>{{ project.submission_date }}</p>
+    <h3>{{ ledger.name|capfirst }}</h3>
+    <p>{{ ledger.balance }}</p>
 
-    {% if project.stakeholder.all %}
-    <p>Project Stakeholders:</p>
-    <ul>
-        {%  for stakeholder in project.stakeholder.all %}
-        <li>{{  stakeholder.name }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+
+    <a href="{% url 'ledger_entries' ledger.id %}">Ledger Detail</a>
 
 
 </div>
