@@ -26,6 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', projects_views.home, name='home'),
     url(r'^project/(\d+)/', projects_views.project_detail, name='project_detail'),
+    url(r'^ledger/(\d+)/', projects_views.ledger_detail, name='ledger_detail'),
+    url(r'^ledgerentries/(\d+)/', projects_views.ledger_entries, name='ledger_entries'),
     url(r'aboutus/',  projects_views.aboutus, name='aboutus'),
     path('register/', user_views.register, name='register'),
     path('profile/', user_views.profile, name='profile'),
