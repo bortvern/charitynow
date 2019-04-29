@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django import forms
 from .models import CharityProject
-from .models import CharityStakeholder
+from .models import CharityStory
 from .models import CharityLedger
 from .models import CharityGoal
 from .models import LedgerEntry
@@ -12,9 +12,9 @@ class CharityProjectAdmin(admin.ModelAdmin):
     list_display = ['name', 'submission_date']
 
 
-@admin.register(CharityStakeholder)
-class CharityStakeholderAdmin(admin.ModelAdmin):
-    list_display = ['name']
+@admin.register(CharityStory)
+class CharityStoryAdmin(admin.ModelAdmin):
+    list_display = ['heading', 'submission_date']
 
 
 @admin.register(CharityLedger)

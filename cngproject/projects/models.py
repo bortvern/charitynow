@@ -3,32 +3,37 @@ from django.db import models
 # Create your models here.
 from django.db import models
 from django import forms
+from django.contrib.auth.models import User
+
 
 class CharityProject(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
-    submitter = models.CharField(max_length=100)
     lat = models.DecimalField(max_digits=9, decimal_places=6)
     lon = models.DecimalField(max_digits=9, decimal_places=6)
     submission_date = models.DateTimeField()
-    stakeholder = models.ManyToManyField('CharityStakeholder', blank=True)
-    ledger = models.OneToOneField('CharityLedger', blank=True, on_delete='cascade')
+    stakeholder = models.ManyToManyField(User, blank=True, related_name='stakeholderuser')
+    owner = models.ForeignKey(User, blank=False, on_delete=models.CASCADE, related_name='owneruser')
     bannerimage = models.ImageField(default='default.jpg', upload_to='project_pics')
 
     def __str__(self):
         return self.name
 
 
-class CharityStakeholder(models.Model):
-    name = models.CharField(max_length=50)
+class CharityStory(models.Model):
+    heading = models.CharField(max_length=100)
+    submission_date = models.DateTimeField()
+    story_text = models.TextField()
+    charityproject = models.ForeignKey(CharityProject, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.heading
 
 
 class CharityLedger(models.Model):
     name = models.CharField(max_length=50)
     balance = models.DecimalField(default=0, max_digits=11, decimal_places=2)
+    charityproject = models.ForeignKey(CharityProject, on_delete=models.CASCADE)
 
     def get_balance(self):
         ledger_entries = LedgerEntry.objects.filter(ledger=self.pk)
@@ -60,8 +65,8 @@ class CharityGoal(models.Model):
 
 
 class LedgerEntry(models.Model):
-    entrycomment = models.CharField(max_length=150, blank=True)
-    entryamount = models.DecimalField(default=0, max_digits=11, decimal_places=2)
+    entrycomment = models.CharField(max_length=150, blank=True, verbose_name="Comment")
+    entryamount = models.DecimalField(default=0, max_digits=11, decimal_places=2, verbose_name='Amount')
     datetime = models.DateTimeField()
     ledger = models.ForeignKey(CharityLedger, on_delete=models.CASCADE)
     goal = models.ForeignKey(CharityGoal, on_delete=models.CASCADE)

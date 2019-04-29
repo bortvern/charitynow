@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import Http404
 from .models import CharityProject
+from .models import CharityLedger
+from .models import LedgerEntry
 # Create your views here.
 
 
@@ -36,6 +38,21 @@ def project_detail(request, id):
     except CharityProject.DoesNotExist:
         raise Http404('Project not found')
     return render(request, 'project_detail.html', {'project': project})
+
+
+def ledger_detail(request, id):
+    try:
+        ledger = CharityLedger.objects.get(id=id)
+    except CharityLedger.DoesNotExist:
+        raise Http404('Ledger not found')
+    return render(request, 'ledger_detail.html', {'ledger': ledger})
+
+def ledger_entries(request, id):
+    try:
+        entries = LedgerEntry.objects.filter(ledger=id)
+    except LedgerEntry.DoesNotExist:
+        raise Http404('Entry does not exist')
+    return render(request, 'ledger_entries.html', {'entries': entries})
 
 
 def cngadmin(request):
